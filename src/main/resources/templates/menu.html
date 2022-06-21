@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<link rel="stylesheet" th:href="@{/css/grid.css}">
+<link rel="stylesheet" th:href="@{/js/modal.js}">
+<title>Common Scents Menu</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="row">
+				<img th:src="@{/img/logo_black.jpg}" alt="Common Scents Logo" class="logo">
+				<ul class="nav secondary-nav">  
+					<li><a th:href="@{home}">Home</a></li>
+					<li><a th:href="@{/}" method="post">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<h2>Common Scents Menu</h2>
+	<form th:action="@{/menu}" th:object="${orders}" method="post">
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+			<span class="close">&times;</span>
+			<label for="items">Choose an item to order:</label>
+				<select id="items" class="select" th:field="*{id}">
+					<option th:value="1">Chocolate Lava Cake</option>
+					<option th:value="2">Rainbow Cake</option>
+					<option th:value="3">Salted Caramel Nuts</option>
+					<option th:value="4">Vanilla-Cherry Cake</option>
+					<option th:value="5">Orange Sherbet Cake</option>
+					<option th:value="6">Whipped Cream Pie</option>
+					<option th:value="7">Nutty Chocolate Frappe</option>
+					<option th:value="8">Glazed Donuts</option>
+				</select>
+				<button class="signbtn">Confirm Order</button>
+				<a class="btn btn-full cancelbtn" href="#">Cancel</a>
+			</div>
+		</div>
+	</form>
+	<section class="baked-goods" style="margin-bottom: 60px; padding-top: 0;">
+		<ul class="baked-goods-showcase clearfix">
+			<div class="row">
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/1.jpg}" alt="Chocolate Lava Cake">
+					</figure>
+					<br>
+					<h3>Chocolate Lava Cake</h3>
+					<div class="product" data-product="1">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/2.jpg}" alt="Rainbow Cake">
+					</figure>
+					<br>
+					<h3>Rainbow Cake</h3>
+					<div class="product" data-product="2">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+			</div>
+		</ul>
+		<ul class="baked-goods-showcase clearfix">
+			<div class="row">
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/3.jpg}" alt="Salted Caramel Nuts">
+					</figure>
+					<br>
+					<h3>Salted Caramel Nuts</h3>
+					<div class="product" data-product="3">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/4.jpg}" alt="Vanilla-Cherry Cake">
+					</figure>
+					<br>
+					<h3>Vanilla-Cherry Cake</h3>
+					<div class="product" data-product="4">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+			</div>
+		</ul>
+		<ul class="baked-goods-showcase clearfix">
+			<div class="row">
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/5.jpg}" alt="Orange Sherbet Cake">
+					</figure>
+					<br>
+					<h3>Orange Sherbet Cake</h3>
+					<div class="product" data-product="5">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/6.jpg}" alt="Whipped Cream Pie">
+					</figure>
+					<br>
+					<h3>Whipped Cream Pie</h3>
+					<div class="product" data-product="6">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+			</div>
+		</ul>
+		<ul class="baked-goods-showcase clearfix">
+			<div class="row">
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/7.jpg}" alt="Nutty Chocolate Frappe">
+					</figure>
+					<br>
+					<h3>Nutty Chocolate Frappe</h3>
+					<div class="product" data-product="7">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+				<div class="col span-1-of-2 box">
+					<figure class="baked-good-photo">
+						<img th:src="@{img/8.jpg}" alt="Glazed Donuts">
+					</figure>
+					<br>
+					<h3>Glazed Donut</h3>
+					<div class="product" data-product="8">
+						<button class="signbtn" style="width: 100%">Order Now</button>
+					</div>
+				</div>
+			</div>
+		</ul>
+	</section>
+	<footer class="footer">
+		<div class="row">
+			<div class="col span-1-of-2">
+				<ul class="footer-nav">
+					<li><a th:href="@{home}">Home</a></li>
+					<li><a th:href="@{/}">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="col span-1-of-2">
+				<ul class="social-icons">
+					<li><a href="facebook.com"><ion-icon class="social-facebook" name="logo-facebook"></ion-icon></a></li>
+					<li><a href="twitter.com"><ion-icon class="social-twitter" name="logo-twitter"></ion-icon></a></li>
+					<li><a href="instagram.com"><ion-icon class="social-instagram" name="logo-instagram"></ion-icon></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<p>Copyright &copy; 2022 by Common Scents. All rights reserved.</p>
+		</div>
+	</footer>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/js/modal.js}"></script>
+</body>
+</html>

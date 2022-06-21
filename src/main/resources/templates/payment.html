@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<link rel="stylesheet" th:href="@{/css/grid.css}">
+<title>Common Scents Payment</title>
+</head>
+<body>
+	<form th:action="@{/payment}" th:object="${payment}" method="put">
+		<div style="padding-top: 5%; padding-left: 20%; padding-right: 20%;">
+			<p>Please fill in this form to finish payment.</p>
+			<hr>
+          	<div class="col span-1-of-2">
+            <h3>Billing Address</h3>
+           
+            <label><i class="fa fa-user"></i> Full Name</label>
+            
+            <input type="text" id="fullName" th:field="*{fullName}" placeholder="Enter Full Name"
+            pattern="^(?![\s.]+$)[a-zA-Z\s.]*$" 
+            title="Please enter your full name." required></input>
+            
+            
+            <label><i class="fa fa-envelope"></i> Email</label>
+            
+            <input type="text" id="email" th:field="*{email}" placeholder="Enter Email"
+            title="Please enter your email." required></input>
+            
+            <label><i class="fa-solid fa-house"></i> Address</label>
+            
+            <input type="text" id="address" th:field="*{address}" placeholder="Enter Address"
+            pattern="[A-Za-z0-9'\.\-\s\,]"
+            title="Please enter your address." required></input>
+            
+            <label><i class="fa fa-institution"></i> City</label>
+            
+            <input type="text" id="city" th:field="*{city}" placeholder="Enter City"
+            pattern="^(?![\s.]+$)[a-zA-Z\s.]*$"
+            title="Please enter your city." required></input>
+            
+            
+            <div class="row" style="max-width: 100%;">
+            	<div class="col span-1-of-2">
+	                <label for="state">State</label>
+	                <input type="text" id="state" th:field="*{state}" placeholder="Enter State"
+	                pattern="^(?-i:A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|
+	                N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])$"
+	                title="Please enter your city." required></input>
+              	</div>
+              	<div class="col span-1-of-2">
+	                <label for="zip">Zip</label>
+	                <input type="text" id="zip" th:field="*{zip}" placeholder="Enter Zip"
+	                pattern="^\d{5}(?:[-\s]\d{4})?$"
+	                title="Please enter your zip." required></input>
+              	</div>
+           	</div>
+       	</div>
+        <div class="col span-1-of-2">
+	        <h3>Payment</h3>
+	        <label for="fname">Accepted Cards</label>
+        <div class="card-icon">
+	        <i class="fa-brands fa-cc-visa" style="color:navy;"></i>
+	        <i class="fa-brands fa-cc-amex" style="color:blue;"></i>
+	        <i class="fa-brands fa-cc-mastercard" style="color:red;"></i>
+	        <i class="fa-brands fa-cc-discover" style="color:orange;"></i>
+        </div>
+        <label for="cname">Name on Card</label>
+        <input type="text" id="cardName" th:field="*{cardName}" placeholder="Enter Name"
+        pattern="^(?![\s.]+$)[a-zA-Z\s.]*$"
+        title="Please enter the name on the card." required></input>
+        <label for="cardNumber">Credit/Debit Card Number</label>
+        <input type="text" id="cardNumber" th:field="*{cardNumber}" placeholder="1111222233334444"
+        pattern="^[0-9]{16}$"
+        title="Please enter your card number." required></input>
+        <label for="expMonth">Exp Month</label>
+        <input type="text" id="expMonth" th:field="*{expMonth}" placeholder="Enter Month"
+        pattern="^(^[1-9]$)|(^0[1-9]|1[0-2]$)" 
+        title="Please enter the experation month on the card." required></input>
+		<div class="row" style="max-width: 100%;">
+            <div class="col span-1-of-2">
+             	<label for="expYear">Exp Year</label>
+              	<input type="text" id="expYear" th:field="*{expYear}" placeholder="Enter Year"
+              	pattern="^(19|20)\d{2}$"
+            	title="Please enter the experation year on the card." required></input>
+            </div>
+			<div class="col span-1-of-2">
+        		<label for="cvv">CVV</label>
+              	<input type="text" id="cvv" th:field="*{cvv}" placeholder="Enter CVV"
+              	pattern="^\d{3}$"
+              	title="Please enter the CVV on the back of the card." required>
+           	</div>
+       	</div>
+       	<label>
+		    	<a th:href="@{/home}" target="_self">Already have a payment option? Click here!</a>
+		    </label>
+	</div>
+    	<a class="btn btn-full cancelbtn" th:href="@{menu}" target="_self">Cancel</a>
+	    <button class="signbtn" type="submit">Finish Payment</button>
+	</div>
+	</form>
+	<footer class="footer fixed-footer">
+		<div class="row">
+			<div class="col span-1-of-2">
+				<ul class="footer-nav">
+					<li><a th:href="@{index}" target="_self">About Us</a></li>
+					<li><a th:href="@{login}" target="_self">Log In</a></li>
+					<li><a th:href="@{registration}" target="_self">Sign Up</a></li>
+				</ul>
+			</div>
+			<div class="col span-1-of-2">
+				<ul class="social-icons">
+					<li><a href="www.facebook.com"><ion-icon class="social-facebook" name="logo-facebook"></ion-icon></a></li>
+					<li><a href="twitter.com"><ion-icon class="social-twitter" name="logo-twitter"></ion-icon></a></li>
+					<li><a href="instagram.com"><ion-icon class="social-instagram" name="logo-instagram"></ion-icon></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<p>Copyright &copy; 2022 by Common Scents. All rights reserved.</p>
+		</div>
+	</footer>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/js/scrollscript.js}"></script>
+	<script th:src="@{/js/passwordscript.js}"></script>
+</html>

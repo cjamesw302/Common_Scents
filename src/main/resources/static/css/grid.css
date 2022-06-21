@@ -1,0 +1,38 @@
+/* SECTIONS */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+/* GROUPING */
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+.row:after {
+    clear:both;
+}
+/* GRID COLUMN SETUP */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1%;
+}
+/* GRID OF TWO */
+.span-2-of-2 {
+	width: 100%;
+}
+.span-1-of-2 {
+	width: 49%;
+}
+/* GRID OF THREE */	
+.span-3-of-3 {
+	width: 100%; 
+}
+.span-2-of-3 {
+	width: 66.13%; 
+}
+.span-1-of-3 {
+	width: 32.26%; 
+}

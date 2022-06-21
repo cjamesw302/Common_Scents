@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+<link rel="stylesheet" th:href="@{/css/grid.css}">
+<title>Common Scents</title>
+</head>
+<body>
+	<header class="home-header">
+		<nav>
+			<div class="row">
+				<img th:src="@{/img/logo_white.png}" alt="Common Scents Logo" class="logo">
+				<ul class="main-nav">  
+					<li><a th:href="@{menu}">View Menu</a></li>
+					<li><a th:href="@{/}" method="post">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="hero-text">
+			<h1>Order baked goods online,<br>it's Common Scents!&trade;</h1>
+			<a class="btn btn-full scroll-to-plans" href="#">See Plans</a>
+			<a class="btn btn-outline scroll-to-summary" href="#">Show Me More</a>
+		</div>
+	</header>
+	<!-- Summary section -->
+	<section class="summary" style="margin-left: 20%; margin-right: 20%;">
+		<div class="row">
+			<h2>Delicious baked goods only a click away</h2>
+		</div>
+		<div class="double-space">
+			Common Scents is a brand-new start-up that is every sweet tooth's dream! We will deliver
+			delicious baked-goods right to your doorstep that you are guaranteed to love. Each order
+			is made by world-class bakers that will provide new and exciting baked-goods each month. 
+			With multiple plans, you can get choose the one that best suits you. Sign up now, it's Common Scents!
+		</div>
+	</section>
+	<!-- Baked Goods section -->
+	<section class="baked-goods">
+		<ul class="baked-goods-showcase clearfix">
+			<li><figure class="baked-good-photo"><img th:src="@{/img/1.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/2.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/3.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/4.jpg}"></figure></li>
+		</ul>
+		<ul class="baked-goods-showcase clearfix">
+			<li><figure class="baked-good-photo"><img th:src="@{/img/5.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/6.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/7.jpg}"></figure></li>
+			<li><figure class="baked-good-photo"><img th:src="@{/img/8.jpg}"></figure></li>
+		</ul>
+	</section>
+	<!-- Cities section-->
+	<section class="cities" id="cities">
+		<div class="row">
+			<h2>We're currently in these cities</h2>
+		</div>
+		<div class="row">
+			<div class="col span-1-of-3 box">
+				<figure class="city-photo">
+					<img th:src="@{/img/boston.jpg}" alt="boston">
+				</figure>
+				<br>
+				<h3>Boston</h3>
+				<div class="features">
+					<ion-icon name="star"></ion-icon>
+					30+ top bakers
+				</div>
+				<div class="features">
+					<ion-icon name="logo-twitter"></ion-icon>
+					<a href="#">@CommonScents_bos</a>
+				</div>
+				<div class="features">
+					<ion-icon name="logo-instagram"></ion-icon>
+					<a href="#">@CommonScents_bos</a>
+				</div>
+			</div>
+			<div class="col span-1-of-3 box">
+				<figure class="city-photo">
+					<img th:src="@{/img/minneapolis.jpg}" alt="Minneapolis">
+				</figure>
+				<br>
+				<h3>Minneapolis</h3>
+				<div class="features">
+					<ion-icon name="star"></ion-icon>
+					20+ top bakers
+				</div>
+				<div class="features">
+					<ion-icon name="logo-twitter"></ion-icon>
+					<a href="#">@CommonScents_mpls</a>
+				</div>
+				<div class="features">
+					<ion-icon name="logo-instagram"></ion-icon>
+					<a href="#">@CommonScents_mpls</a>
+				</div>
+			</div>
+			<div class="col span-1-of-3 box">
+				<figure class="city-photo">
+					<img th:src="@{/img/atlanta.jpg}" alt="Atlanta">
+				</figure>
+				<br>
+				<h3>Atlanta</h3>
+				<div class="features">
+					<ion-icon name="star"></ion-icon>
+					25+ top bakers
+				</div>
+				<div class="features">
+					<ion-icon name="logo-twitter"></ion-icon>
+					<a href="#">@CommonScents_atl</a>
+				</div>
+				<div class="features">
+					<ion-icon name="logo-instagram"></ion-icon>
+					<a href="#">@CommonScents_atl</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Plans section -->
+	<section class="plans">
+		<div class="row">
+			<h2>Sign up and order today</h2>
+		</div>
+	<table class="plans-table">
+		<thead>
+			<tr>
+        		<th>Plan Name</th>
+	           	<th>Price</th>
+	           	<th>Number of Orders</th>
+	           	<th>Availability</th>
+	           	<th>Free Delivery</th>
+	           	<th>Access to Newest Recipes</th>
+	           	<th>Join Now!</th>
+	       </tr>
+	   </thead>
+	   <tbody>
+       		<tr>
+       			<td>Basic</td>
+	       		<td>$99.99/month</td>
+	           	<td>1 order per day</td>
+	           	<td>12pm to 8pm</td>
+	           	<td><ion-icon name="close"></ion-icon></td>
+	           	<td><ion-icon name="close"></ion-icon></td>
+	           	<td><a class="btn btn-outline" th:href="@{registration}">Sign up</a></td>
+	       </tr>
+	       <tr>
+	       		<td>Premium</td>
+	       		<td>$199.99/month</td>
+	           	<td>1 order per day</td>
+	           	<td>24/7</td>
+	           	<td><ion-icon name="checkmark"></ion-icon></td>
+	           	<td><ion-icon name="close"></ion-icon></td>
+	           	<td><a class="btn btn-outline" th:href="@{registration}">Sign up</a></td>
+	       </tr>
+	       <tr class="highlight-row">
+	           	<td>Deluxe</td>
+	           	<td>$299.99/month</td>
+	           	<td>2 orders per day</td>
+	           	<td>24/7</td>
+	           	<td><ion-icon name="checkmark"></ion-icon></td>
+	           	<td><ion-icon name="checkmark"></ion-icon></td>
+	           	<td><a class="btn btn-full" th:href="@{registration}">Sign up</a></td>
+	       </tr>
+	   </tbody>
+	</table>
+	</section>
+	<!-- Footer section -->
+	<footer>
+		<div class="row">
+			<div class="col span-1-of-2">
+				<ul class="footer-nav">
+					<li><a th:href="@{menu}">View Menu</a></li>
+					<li><a th:href="@{account}">Account</a></li>
+					<li><a th:href="@{index}">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="col span-1-of-2">
+				<ul class="social-icons">
+					<li><a href="#"><ion-icon class="social-facebook" name="logo-facebook"></ion-icon></a></li>
+					<li><a href="#"><ion-icon class="social-twitter" name="logo-twitter"></ion-icon></a></li>
+					<li><a href="#"><ion-icon class="social-instagram" name="logo-instagram"></ion-icon></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<p>Copyright &copy; 2022 by Common Scents. All rights reserved.</p>
+		</div>
+	</footer>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/js/scroll_script.js}"></script>
+</body>
+</html>
