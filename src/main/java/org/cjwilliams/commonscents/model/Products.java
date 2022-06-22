@@ -28,10 +28,10 @@ public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable=false)
-	private long id;
-	@Column(nullable=false)
+	private Long id;
+	@Column(nullable=false, unique=true)
 	private String name;
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String description;
 	
 	@OneToMany(mappedBy = "products", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

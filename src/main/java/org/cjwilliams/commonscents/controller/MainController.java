@@ -23,8 +23,4 @@ public class MainController {
 	public String home() {
 	    return "home";
 	}
-	@GetMapping("/user")
-	public String userIndex() {
-	    return "user/index";
-	}
 }

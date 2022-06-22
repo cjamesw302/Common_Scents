@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService {
    @Autowired
    private BCryptPasswordEncoder passwordEncoder;
 
-   //finds user by email
+   //Returns user by corresponding email(unique field) 
    
    @Override
    public Users findByEmail(String email){
        return userRepository.findByEmail(email);
    }
    
-   //saves user data to database
+   //Gets and sets current user details to database
    
    @Override
    public Users save(UserRegistrationDto registration){

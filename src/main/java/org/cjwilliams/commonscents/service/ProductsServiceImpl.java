@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+//Implementation of products service
+
 @Service
 @Lazy
 public class ProductsServiceImpl implements ProductsService {
 	@Autowired
 	private ProductsRepository productsRepository;
 
+	//Returns product by corresponding id
+	
 	@Override
 	public Products findByid(long id) {
 		return productsRepository.findByid(id);

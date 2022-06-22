@@ -21,7 +21,15 @@ import javax.persistence.TemporalType;
 public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
+	@Column(nullable=false)
+	private String address;
+	@Column(nullable=false)
+	private String city;
+	@Column(nullable=false)
+	private String state;
+	@Column(nullable=false)
+	private String zip;
 	
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -32,7 +40,7 @@ public class Orders {
 	private Users users;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "productID")
+	@JoinColumn(name = "productID", nullable=false)
 	private Products products;
 
 	//No args constructor for orders
@@ -43,19 +51,26 @@ public class Orders {
 
 	//All args constructor for orders
 	
-	public Orders(Date orderDate, Users users) {
+	public Orders(Long id, String address, String city, String state, String zip, Date orderDate, Users users,
+			Products products) {
 		super();
+		this.id = id;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 		this.orderDate = orderDate;
 		this.users = users;
+		this.products = products;
 	}
 
 	//Getters and setters for corresponding variables
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -82,9 +97,42 @@ public class Orders {
 	public void setProducts(Products products) {
 		this.products = products;
 	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", orderDate=" + orderDate + ", users=" + users + "]";
+		return "Orders [id=" + id + ", address=" + address + ", city=" + city + ", state=" + state + ", zip=" + zip
+				+ ", orderDate=" + orderDate + ", users=" + users + ", products=" + products + "]";
 	}
 }

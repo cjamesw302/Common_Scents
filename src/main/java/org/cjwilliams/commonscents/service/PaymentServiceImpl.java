@@ -6,13 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+//Implementation of payment service
+
 @Service
 @Lazy
 public class PaymentServiceImpl implements PaymentService {
 	@Autowired
     private PaymentRepository paymentRepository;
 
-	//saves payment data to database
+	//Saves gets and sets current order details to database
 	
     @Override
     public Payment save(Payment registration){

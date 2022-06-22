@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //Payment registration controller that saves order data to database
@@ -33,8 +33,10 @@ public class PaymentRegistrationController {
     	model.addAttribute("payment", payment);
     	return "payment";
     }
-    //Posts payment data to database
-    @PutMapping
+    
+    //Posts payment data of current user to database
+    
+    @PostMapping
     public String updateUserPayment(@ModelAttribute Payment payment){
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     	String login = authentication.getName();

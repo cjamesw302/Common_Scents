@@ -31,7 +31,7 @@ public class Payment {
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
-	private Integer zip;
+	private String zip;
 	@Column(nullable=false)
 	private String cardName;
 	@Column(nullable=false)
@@ -44,7 +44,7 @@ public class Payment {
 	private Integer cvv;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "userID")
+	@JoinColumn(name = "userID", nullable=false)
 	private Users users;
 	
 	//No args constructor for payment
@@ -55,9 +55,10 @@ public class Payment {
 
 	//All args constructor for payment
 	
-	public Payment(String fullName, String email, String address, String city, String state, Integer zip,
+	public Payment(Long id, String fullName, String email, String address, String city, String state, String zip,
 			String cardName, Long cardNumber, Integer expMonth, Integer expYear, Integer cvv, Users users) {
 		super();
+		this.id = id;
 		this.fullName = fullName;
 		this.email = email;
 		this.address = address;
@@ -122,11 +123,11 @@ public class Payment {
 		this.state = state;
 	}
 
-	public Integer getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(Integer zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 

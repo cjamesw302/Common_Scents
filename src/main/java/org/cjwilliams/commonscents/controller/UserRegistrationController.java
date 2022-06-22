@@ -26,12 +26,16 @@ public class UserRegistrationController {
    public UserRegistrationDto userRegistrationDto() {
        return new UserRegistrationDto();
    }
+   
    //Getmapping for registration view
+   
    @GetMapping
    public String showRegistrationForm(Model model) {
        return "registration";
    }
+   
    //Posts user data to database unless that email is already registered
+   
    @PostMapping
    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
        Users existing = userService.findByEmail(userDto.getEmail());

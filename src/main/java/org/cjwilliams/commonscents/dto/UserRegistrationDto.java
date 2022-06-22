@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
-//Data transfer object class for user registration
+//Data transfer object class for user registration for when they are registering account
 
 @Setter @Getter
 public class UserRegistrationDto {

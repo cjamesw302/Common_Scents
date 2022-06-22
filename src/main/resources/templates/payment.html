@@ -8,7 +8,7 @@
 <title>Common Scents Payment</title>
 </head>
 <body>
-	<form th:action="@{/payment}" th:object="${payment}" method="put">
+	<form th:action="@{/payment}" th:object="${payment}" method="post">
 		<div style="padding-top: 5%; padding-left: 20%; padding-right: 20%;">
 			<p>Please fill in this form to finish payment.</p>
 			<hr>
@@ -25,6 +25,7 @@
             <label><i class="fa fa-envelope"></i> Email</label>
             
             <input type="text" id="email" th:field="*{email}" placeholder="Enter Email"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
             title="Please enter your email." required></input>
             
             <label><i class="fa-solid fa-house"></i> Address</label>
@@ -91,9 +92,7 @@
               	title="Please enter the CVV on the back of the card." required>
            	</div>
        	</div>
-       	<label>
-		    	<a th:href="@{/home}" target="_self">Already have a payment option? Click here!</a>
-		    </label>
+    	<a th:href="@{/home}" target="_self">Already have a payment option? Click here!</a>
 	</div>
     	<a class="btn btn-full cancelbtn" th:href="@{menu}" target="_self">Cancel</a>
 	    <button class="signbtn" type="submit">Finish Payment</button>

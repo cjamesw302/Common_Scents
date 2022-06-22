@@ -5,5 +5,6 @@ import org.cjwilliams.commonscents.model.Payment;
 //Interface for payment service
 
 public interface PaymentService{
-   Payment save(Payment payment);
+	//Saves gets and sets current payment details to database
+    Payment save(Payment payment);
 }
