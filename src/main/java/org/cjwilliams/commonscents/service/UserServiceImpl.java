@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 @Lazy
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
    //Returns user by corresponding email(unique field) 
    
    @Override
-   public Users findByEmail(String email){
+   public Users findByEmail(@RequestParam String email){
        return userRepository.findByEmail(email);
    }
    

@@ -4,7 +4,9 @@ import org.cjwilliams.commonscents.model.Products;
 import org.cjwilliams.commonscents.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 //Implementation of products service
 
@@ -17,7 +19,7 @@ public class ProductsServiceImpl implements ProductsService {
 	//Returns product by corresponding id
 	
 	@Override
-	public Products findByid(long id) {
+	public Products findByid(@RequestParam Long id) {
 		return productsRepository.findByid(id);
 	}
 }

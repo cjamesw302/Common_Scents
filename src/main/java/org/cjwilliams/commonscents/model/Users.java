@@ -50,6 +50,8 @@ public class Users {
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private List<Orders> orders;
 
+    
+    
     //Getters and setters for corresponding variables
     
 	public Long getId() {

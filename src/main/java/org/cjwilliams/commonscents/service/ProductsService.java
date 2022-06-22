@@ -6,5 +6,5 @@ import org.cjwilliams.commonscents.model.Products;
 
 public interface ProductsService {
 	//Returns product by corresponding id
-	Products findByid(long id);
+	Products findByid(Long id);
 }
