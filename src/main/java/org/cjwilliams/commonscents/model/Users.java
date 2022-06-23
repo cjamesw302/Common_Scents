@@ -2,6 +2,8 @@ package org.cjwilliams.commonscents.model;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -51,9 +53,26 @@ public class Users {
     private List<Orders> orders;
 
     
+    //All args constructor
+    
+    public Users(Long id, String firstName, String lastName, String email, String password, Collection<Role> roles,
+			Payment payment, List<Orders> orders) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+		this.payment = payment;
+		this.orders = orders;
+	}
+    
+    //No args constructor
+    public Users(){}
     
     //Getters and setters for corresponding variables
-    
+
 	public Long getId() {
 		return id;
 	}
@@ -116,5 +135,31 @@ public class Users {
 	
 	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, id, lastName, orders, password, payment, roles);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Users other = (Users) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName)
+				&& Objects.equals(orders, other.orders) && Objects.equals(password, other.password)
+				&& Objects.equals(payment, other.payment) && Objects.equals(roles, other.roles);
+	}
+
+	@Override
+	public String toString() {
+		return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", roles=" + roles + ", payment=" + payment + ", orders=" + orders + "]";
 	}
 }

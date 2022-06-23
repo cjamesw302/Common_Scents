@@ -1,6 +1,8 @@
 package org.cjwilliams.commonscents.model;
 
 import java.util.Date;
+import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +31,7 @@ public class Orders {
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
-	private String zip;
+	private Integer zip;
 	
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -51,7 +53,7 @@ public class Orders {
 
 	//All args constructor for orders
 	
-	public Orders(Long id, String address, String city, String state, String zip, Date orderDate, Users users,
+	public Orders(Long id, String address, String city, String state, Integer zip, Date orderDate, Users users,
 			Products products) {
 		super();
 		this.id = id;
@@ -122,11 +124,11 @@ public class Orders {
 		this.state = state;
 	}
 
-	public String getZip() {
+	public Integer getZip() {
 		return zip;
 	}
 
-	public void setZip(String zip) {
+	public void setZip(Integer zip) {
 		this.zip = zip;
 	}
 
@@ -134,5 +136,25 @@ public class Orders {
 	public String toString() {
 		return "Orders [id=" + id + ", address=" + address + ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ ", orderDate=" + orderDate + ", users=" + users + ", products=" + products + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, city, id, orderDate, products, state, users, zip);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Orders other = (Orders) obj;
+		return Objects.equals(address, other.address) && Objects.equals(city, other.city)
+				&& Objects.equals(id, other.id) && Objects.equals(orderDate, other.orderDate)
+				&& Objects.equals(products, other.products) && Objects.equals(state, other.state)
+				&& Objects.equals(users, other.users) && Objects.equals(zip, other.zip);
 	}
 }

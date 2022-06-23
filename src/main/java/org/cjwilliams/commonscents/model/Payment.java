@@ -1,5 +1,7 @@
 package org.cjwilliams.commonscents.model;
 
+import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +33,7 @@ public class Payment {
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
-	private String zip;
+	private Integer zip;
 	@Column(nullable=false)
 	private String cardName;
 	@Column(nullable=false)
@@ -55,7 +57,7 @@ public class Payment {
 
 	//All args constructor for payment
 	
-	public Payment(Long id, String fullName, String email, String address, String city, String state, String zip,
+	public Payment(Long id, String fullName, String email, String address, String city, String state, Integer zip,
 			String cardName, Long cardNumber, Integer expMonth, Integer expYear, Integer cvv, Users users) {
 		super();
 		this.id = id;
@@ -123,11 +125,11 @@ public class Payment {
 		this.state = state;
 	}
 
-	public String getZip() {
+	public Integer getZip() {
 		return zip;
 	}
 
-	public void setZip(String zip) {
+	public void setZip(Integer zip) {
 		this.zip = zip;
 	}
 
@@ -177,5 +179,36 @@ public class Payment {
 
 	public void setUsers(Users users) {
 		this.users = users;
+	}
+
+	@Override
+	public String toString() {
+		return "Payment [id=" + id + ", fullName=" + fullName + ", email=" + email + ", address=" + address + ", city="
+				+ city + ", state=" + state + ", zip=" + zip + ", cardName=" + cardName + ", cardNumber=" + cardNumber
+				+ ", expMonth=" + expMonth + ", expYear=" + expYear + ", cvv=" + cvv + ", users=" + users + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, cardName, cardNumber, city, cvv, email, expMonth, expYear, fullName, id, state,
+				users, zip);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		return Objects.equals(address, other.address) && Objects.equals(cardName, other.cardName)
+				&& Objects.equals(cardNumber, other.cardNumber) && Objects.equals(city, other.city)
+				&& Objects.equals(cvv, other.cvv) && Objects.equals(email, other.email)
+				&& Objects.equals(expMonth, other.expMonth) && Objects.equals(expYear, other.expYear)
+				&& Objects.equals(fullName, other.fullName) && Objects.equals(id, other.id)
+				&& Objects.equals(state, other.state) && Objects.equals(users, other.users)
+				&& Objects.equals(zip, other.zip);
 	}
 }

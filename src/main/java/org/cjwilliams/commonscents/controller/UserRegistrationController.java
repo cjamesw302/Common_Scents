@@ -1,27 +1,17 @@
 package org.cjwilliams.commonscents.controller;
 
-import java.util.Arrays;
-
 import javax.validation.Valid;
 import org.cjwilliams.commonscents.dto.UserRegistrationDto;
-import org.cjwilliams.commonscents.model.Role;
 import org.cjwilliams.commonscents.model.Users;
-import org.cjwilliams.commonscents.repository.UserRepository;
 import org.cjwilliams.commonscents.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.client.ResourceAccessException;
 
 //User registration controller that saves order data to database
 
@@ -32,12 +22,6 @@ public class UserRegistrationController {
    @Autowired
    private UserService userService;
    
-   @Autowired
-   private UserRepository userRepository;
-   
-   @Autowired
-   private BCryptPasswordEncoder passwordEncoder;
-
    @ModelAttribute("user")
    public UserRegistrationDto userRegistrationDto() {
        return new UserRegistrationDto();
@@ -62,7 +46,7 @@ public class UserRegistrationController {
            return "registration";
        }
        userService.save(userDto);
-       return "redirect:/login?success";
+       return "redirect:/login";
    }
    /*
    
