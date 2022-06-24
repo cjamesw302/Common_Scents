@@ -43,7 +43,7 @@ class TestOrderServiceImpl extends OrderServiceImpl {
 		order.setCity("Cityville");
 		order.setOrderDate(date);
 		order.setState("MA");
-		order.setZip(12345);
+		order.setZip("12345");
 		order.setProducts(product);
 		order.setUsers(user);
 		product.setId(2L);

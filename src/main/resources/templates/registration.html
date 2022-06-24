@@ -16,19 +16,19 @@
 			    <label for="firstName">First name</label>
 			    <input type="text" id="firstName" th:field="*{firstName}" 
 			    pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$"
-			    title="Please enter your first name." required></input>
+			    title="Please enter your first name" required></input>
 			</div>
 			<div class="required">
 			    <label for="lastName">Last name</label>
 			    <input type="text" id="lastName" th:field="*{lastName}" 
 			    pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$"
-			    title="Please enter your last name." required></input>
+			    title="Please enter your last name" required></input>
 			</div>
 			<div class="required">
 			    <label>Email</label>
 			    <input type="text" id="email" th:field="*{email}" 
 			    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-			    title="Please enter your email address." required></input>
+			    title="Please enter your email address" required></input>
 			</div>
 			<div class="required">
 			    <label for="password">Password</label>
@@ -41,7 +41,7 @@
 			     <label for="confirmPassword">Confirm Password</label>
 			     <input id="confirmPassword" type="password" oninput="check(this)" th:field="*{confirmPassword}"
 			     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-			     title="Please enter your password again." required></input>
+			     title="Please enter your password again" required></input>
 		    </div>
 		    <label>
 		    	<a  href="/" th:href="@{/login}" target="_self">Already a member? Sign in here!</a>

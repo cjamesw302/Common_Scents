@@ -52,9 +52,9 @@ class TestPaymentServiceImpl extends PaymentServiceImpl {
 		payment.setAddress("1");
 		payment.setCity("city");
 		payment.setState("MA");
-		payment.setZip(12345);
+		payment.setZip("12345");
 		payment.setCardName("Bob Boy");
-		payment.setCardNumber(1111222233334444L);
+		payment.setCardNumber("1111222233334444");
 		payment.setExpMonth(01);
 		payment.setExpYear(2025);
 		payment.setCvv(123);

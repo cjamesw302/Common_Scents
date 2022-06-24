@@ -31,7 +31,7 @@ public class Orders {
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
-	private Integer zip;
+	private String zip;
 	
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -53,7 +53,7 @@ public class Orders {
 
 	//All args constructor for orders
 	
-	public Orders(Long id, String address, String city, String state, Integer zip, Date orderDate, Users users,
+	public Orders(Long id, String address, String city, String state, String zip, Date orderDate, Users users,
 			Products products) {
 		super();
 		this.id = id;
@@ -124,11 +124,11 @@ public class Orders {
 		this.state = state;
 	}
 
-	public Integer getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(Integer zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 

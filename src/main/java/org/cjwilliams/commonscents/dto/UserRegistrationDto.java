@@ -7,9 +7,7 @@ import lombok.Setter;
 
 //Data transfer object class for user registration for when they are registering account
 
-@Setter @Getter
 public class UserRegistrationDto {
-
     @NotEmpty
     private String firstName;
 

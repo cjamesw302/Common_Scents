@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Service
 @Lazy
 public class UserServiceImpl implements UserService {
-
    @Autowired
    private UserRepository userRepository;
 

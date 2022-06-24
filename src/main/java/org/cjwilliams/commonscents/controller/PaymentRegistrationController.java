@@ -1,5 +1,6 @@
 package org.cjwilliams.commonscents.controller;
 
+import org.cjwilliams.commonscents.dto.PaymentRegistrationDto;
 import org.cjwilliams.commonscents.model.Payment;
 import org.cjwilliams.commonscents.model.Users;
 import org.cjwilliams.commonscents.service.PaymentService;
@@ -37,11 +38,7 @@ public class PaymentRegistrationController {
     //Posts payment data of current user to database
     
     @PostMapping
-    public String updateUserPayment(@ModelAttribute Payment payment){
-    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    	String login = authentication.getName();
-    	Users user = userService.findByEmail(login);
-    	payment.setUsers(user);
+    public String updateUserPayment(@ModelAttribute PaymentRegistrationDto payment){
         paymentService.save(payment);
         return "redirect:/home?success";
    }

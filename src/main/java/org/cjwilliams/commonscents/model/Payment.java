@@ -33,11 +33,11 @@ public class Payment {
 	@Column(nullable=false)
 	private String state;
 	@Column(nullable=false)
-	private Integer zip;
+	private String zip;
 	@Column(nullable=false)
 	private String cardName;
 	@Column(nullable=false)
-	private Long cardNumber;
+	private String cardNumber;
 	@Column(nullable=false)
 	private Integer expMonth;
 	@Column(nullable=false)
@@ -57,8 +57,8 @@ public class Payment {
 
 	//All args constructor for payment
 	
-	public Payment(Long id, String fullName, String email, String address, String city, String state, Integer zip,
-			String cardName, Long cardNumber, Integer expMonth, Integer expYear, Integer cvv, Users users) {
+	public Payment(Long id, String fullName, String email, String address, String city, String state, String zip,
+			String cardName, String cardNumber, Integer expMonth, Integer expYear, Integer cvv, Users users) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
@@ -125,11 +125,11 @@ public class Payment {
 		this.state = state;
 	}
 
-	public Integer getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(Integer zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
@@ -141,11 +141,11 @@ public class Payment {
 		this.cardName = cardName;
 	}
 
-	public Long getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Long cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
