@@ -1,4 +1,4 @@
-package org.cjwilliams.commonscents.test.repository;
+package org.cjwilliams.commonscents.test.service;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,23 +8,22 @@ import org.cjwilliams.commonscents.model.Role;
 import org.cjwilliams.commonscents.model.Users;
 import org.cjwilliams.commonscents.repository.PaymentRepository;
 import org.cjwilliams.commonscents.repository.UserRepository;
+import org.cjwilliams.commonscents.service.PaymentServiceImpl;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-//Test class for PaymentRepository
+//Test class of PaymentServiceImpl
 
-@DataJpaTest
+@SpringBootTest
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class TestPaymentRepository {
+class TestPaymentServiceImpl extends PaymentServiceImpl {
 	@Autowired
 	PaymentRepository paymentRepository;
 	
@@ -36,7 +35,7 @@ class TestPaymentRepository {
 	static Collection<Role> roles;
 	static List<Orders> orders;
 	
-	//Set up instances of user and payment
+	//Set up instances of users and payment
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -62,12 +61,11 @@ class TestPaymentRepository {
 		payment.setUsers(user);
 	}
 
-	//Test to see if repo returns payment based on userID provided
+	//Tests save of payment to repo
 	
 	@Test
-	void testFindPaymentByuserID() {
+	void testSave() {
 		userRepository.save(user);
-		paymentRepository.save(payment);
-		Assert.assertNotNull(paymentRepository.findPaymentByuserID(user.getId()));
+		Assert.assertNotNull(paymentRepository.save(payment));
 	}
 }
