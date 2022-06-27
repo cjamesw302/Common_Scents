@@ -33,6 +33,19 @@ Common Scents is a (fictitious) baked-goods delivery service in which users can 
 - As a business owner, I want my users' information to be secure, so that they feel safe using my platform.
 - As a baker, I want to see orders updated in real-time, so I can begin preparing them as soon as possible.
 
+# Technical Specifications
+## Backend
+- HeidiSQL DBMS
+- Spring Security
+- Spring Data JPA
+- Junit
+## Frontend
+- HTML & CSS
+- Javascript
+- Thymeleaf
+- jQuery
+
+
 # Project Challenges
 ## Database
 - Design a database
@@ -45,3 +58,14 @@ Common Scents is a (fictitious) baked-goods delivery service in which users can 
 - Make view pages clean and readable
 ## Other
 - Wrap my project and all assets into one working project
+
+# Future Implementations
+- Implement different roles
+    - Admin vs Users
+-Additional views
+    - Account page, order history, settings, etc.
+- Additional user functionality
+    - Update payment, delete account, etc.
+- More exception handling
+    - More custom error pages based on error type
+- Implement external APIs for payment or web services such as AWS
