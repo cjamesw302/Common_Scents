@@ -1,5 +1,14 @@
-# Common_Scents
+# Common Scents
 CJ Williams' case study for the Teksystems' Q2 Full-Stack Developer course.
+
+# Summary
+Common Scents is a (fictious) baked-goods delivery service in which users can sign up and order delicious desserts.
+
+# Instructions
+- Register an account the service
+- Log into your account
+- Register a payment method
+- View the menu and order what you are craving!
 
 # User stories
 - As a user, I want different subscription tiers, so that I use the one that is affordable to me.
