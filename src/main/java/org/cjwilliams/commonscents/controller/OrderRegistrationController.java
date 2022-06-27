@@ -1,5 +1,6 @@
 package org.cjwilliams.commonscents.controller;
 
+import org.cjwilliams.commonscents.exception.CSException;
 import org.cjwilliams.commonscents.model.Orders;
 import org.cjwilliams.commonscents.model.Products;
 import org.cjwilliams.commonscents.model.Users;
@@ -50,14 +51,14 @@ public class OrderRegistrationController {
     //Postmapping order details if current user id matches payment userID, else redirects to payment registration page
     
     @PostMapping
-    public String registerOrder(@ModelAttribute Orders order, @RequestParam Long id){
+    public String registerOrder(@ModelAttribute Orders order, @RequestParam Long id) throws CSException{
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     	String login = authentication.getName();
     	Users user = userService.findByEmail(login);
     	Products product = productsService.findByid(id);
     	System.out.println(id);
     	if(user.getId() != paymentRepository.findPaymentByuserID(user.getId())) {
-    		return "redirect:/payment?NoPayment";
+    		return "redirect:/nopayment";
     	}
     	else {
 	    	order.setProducts(product);

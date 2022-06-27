@@ -1,5 +1,6 @@
 package org.cjwilliams.commonscents.service;
 
+import org.cjwilliams.commonscents.exception.CSException;
 import org.cjwilliams.commonscents.model.Products;
 import org.cjwilliams.commonscents.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,10 @@ public class ProductsServiceImpl implements ProductsService {
 	//Returns product by corresponding id
 	
 	@Override
-	public Products findByid(@RequestParam Long id) {
+	public Products findByid(@RequestParam Long id) throws CSException{
+		if(id == null) {
+			throw new CSException("id does not exist");
+		}
 		return productsRepository.findByid(id);
 	}
 }
